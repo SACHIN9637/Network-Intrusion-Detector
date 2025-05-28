@@ -1,34 +1,116 @@
-# 🌾 MaharashtraBhoomi: Crop Yield Predictor
+# 🛡️ Intrusion Detection System (IDS) with Machine Learning
 
-MaharashtraBhoomi is a web application designed to help farmers predict crop yields based on various parameters like rainfall, area, district, season, and soil quality. The app leverages machine learning models to provide accurate predictions of crop production, aiding farmers in making informed decisions about their agricultural activities.
+A web-based intelligent Intrusion Detection System that utilizes machine learning (LDA) to detect and visualize network anomalies in real-time. Designed for scalability and modular integration in enterprise networks.
+
+## 📌 Project Overview
+
+This system helps detect both known and unknown network intrusions using a machine learning model and provides a simple web interface for live interaction and analysis.
+
+## 👨‍💻 Author
+
+- **Name:** Sachin Ganesh Jadhav  
+- **Email ID:** sachin.jadhav@mitaoe.ac.in
+
+---
+
+## 📁 Project Structure
+
+```
+IDS/
+├── RAG_pipeline/
+│   ├── app.py                # Flask backend
+│   ├── chatbot.py            # NLP-based user assistant
+│   ├── ids.py                # Core ML detection logic
+│   ├── Instrusion_Detection.ipynb  # Model training notebook
+│   ├── cleaned_dataset.csv   # Preprocessed network traffic data
+│   ├── filtered_dataset.csv  # Filtered traffic for training
+│   ├── LDA_model.pkl         # Trained ML model
+│   └── templates/
+│       └── index.html        # Frontend UI
+```
 
 ---
 
 ## 🚀 Features
 
-- 📈 Predict Crop Yield: Enter crop details like rainfall, area, district, season, and soil quality to predict yield in quintals.
-- 🧑‍🌾 User-Friendly Interface: Simple and intuitive design tailored for farmers.
-- 🗺️ District Selection: Choose from various districts of Maharashtra.
-- 📱 Responsive Design: Mobile-optimized for use in rural areas.
-- ⚙️ Integrated ML Model: Real-time predictions using Flask API and trained ML models.
+- 📊 **Anomaly Detection** using Latent Dirichlet Allocation (LDA)
+- 🌐 **Web-based Interface** with Flask
+- 📈 **Visualizations**: Confusion matrix, anomaly trends, feature distributions
+- 🤖 **Chatbot Assistant** for help and queries
+- 🔐 Designed for **enterprise-level scalability**
 
 ---
 
-## 💻 Technologies Used
+## 🧑‍💻 Tech Stack
 
-- 🖼️ Frontend: React.js, Bootstrap
-- 🧠 Machine Learning: XGBoost
-- 🔙 Backend: Flask (Python)
-- 🌐 Deployment: Local development server
+- **Language**: Python 3.9
+- **Libraries**: Flask, Scikit-learn, Pandas, NumPy
+- **Tools**: Jupyter Notebook, VS Code
+- **OS**: Windows 11 (Development), Ubuntu 20.04 (Testing)
 
 ---
 
-## 🛠️ Installation & Setup
+## 🛠️ Setup & Installation
 
-### 1. Clone the Repository
+1. Clone the repository:
+   ```bash
+   git clone <repo-url>
+   cd IDS/RAG_pipeline
+   ```
 
-```bash
-git clone https://github.com/SACHIN9637/MaharashtraBhoomi-Crop-Yield-Predictor.git
-cd MaharashtraBhoomi
+2. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
+3. Run the application:
+   ```bash
+   python app.py
+   ```
 
+4. Visit `http://localhost:5000` in your browser.
+
+---
+
+## 📊 Performance Metrics
+
+| Metric     | Score |
+|------------|-------|
+| Accuracy   | 92%   |
+| Precision  | 89%   |
+| Recall     | 85%   |
+| F1-Score   | 87%   |
+
+---
+
+## 🖥️ Usage Guide
+
+- **Homepage**: Upload CSV/JSON dataset and start detection.
+- **Dashboard**: View confusion matrix, anomaly trends, severity tables.
+- **Help**: Get chatbot assistance and FAQs.
+- **Export**: Download reports as `.csv` or `.pdf`.
+
+---
+
+## 🔧 Maintenance
+
+- Regular model updates with new datasets.
+- Performance monitoring using tools like Prometheus or Grafana.
+- Logging & Security enhancements.
+- User feedback and documentation updates.
+
+---
+
+## 📚 References
+
+- [Scikit-learn](https://scikit-learn.org)
+- [Flask](https://flask.palletsprojects.com)
+- [Python](https://docs.python.org/3/)
+- [NumPy](https://numpy.org/doc/)
+- [Pandas](https://pandas.pydata.org/)
+
+---
+
+## 📃 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
