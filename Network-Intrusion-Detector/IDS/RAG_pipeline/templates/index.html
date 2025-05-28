@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intrusion Detection System - Secure Your Network</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        .nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(26, 26, 46, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            background: linear-gradient(45deg, #00ff88, #00ffcc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            margin-left: 30px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #00ff88;
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 255, 136, 0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .hero-content {
+            max-width: 800px;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: #b3b3b3;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background: linear-gradient(45deg, #00ff88, #00ffcc);
+            color: #1a1a2e;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: transform 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+        }
+
+        section {
+            padding: 100px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            background: linear-gradient(45deg, #ffffff, #00ff88);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        section p {
+            margin-bottom: 20px;
+            color: #b3b3b3;
+        }
+
+        .feature-list {
+            margin: 30px 0;
+            padding-left: 20px;
+        }
+
+        .feature-list li {
+            margin: 15px 0;
+            color: #b3b3b3;
+        }
+
+        .feature-list li::marker {
+            color: #00ff88;
+        }
+
+        .prevention-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .prevention-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .prevention-item h3 {
+            color: #00ff88;
+            margin-bottom: 15px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(0, 0, 0, 0.3);
+            color: #b3b3b3;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            section h2 {
+                font-size: 2rem;
+            }
+        }
+
+         * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        /* Previous styles from the last version remain the same until the chatbot styles */
+
+        /* Chatbot Styles */
+        .chat-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, #00ff88, #00ffcc);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 255, 136, 0.3);
+            z-index: 1000;
+            transition: transform 0.3s;
+        }
+
+        .chat-button:hover {
+            transform: scale(1.1);
+        }
+
+        .chat-icon {
+            width: 30px;
+            height: 30px;
+            fill: #1a1a2e;
+        }
+
+        .chat-container {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            width: 350px;
+            height: 500px;
+            background: rgba(26, 26, 46, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: none;
+            flex-direction: column;
+            z-index: 1000;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+        }
+
+        .chat-container.active {
+            display: flex;
+        }
+
+        .chat-header {
+            padding: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chat-header h3 {
+            color: #00ff88;
+        }
+
+        .close-chat {
+            cursor: pointer;
+            color: #ffffff;
+            font-size: 20px;
+        }
+
+        .chat-messages {
+            flex-grow: 1;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .message {
+            max-width: 80%;
+            padding: 10px 15px;
+            border-radius: 15px;
+            line-height: 1.4;
+        }
+
+        .user-message {
+            background: rgba(0, 255, 136, 0.1);
+            border: 1px solid rgba(0, 255, 136, 0.2);
+            align-self: flex-end;
+        }
+
+        .bot-message {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            align-self: flex-start;
+        }
+
+        .chat-input {
+            padding: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            gap: 10px;
+        }
+
+        .chat-input input {
+            flex-grow: 1;
+            padding: 10px 15px;
+            border-radius: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.05);
+            color: #ffffff;
+            outline: none;
+        }
+
+        .chat-input input:focus {
+            border-color: rgba(0, 255, 136, 0.5);
+        }
+
+        .send-button {
+            padding: 10px 20px;
+            background: linear-gradient(45deg, #00ff88, #00ffcc);
+            border: none;
+            border-radius: 25px;
+            color: #1a1a2e;
+            cursor: pointer;
+            font-weight: bold;
+            transition: transform 0.3s;
+        }
+
+        .send-button:hover {
+            transform: scale(1.05);
+        }
+
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(0, 255, 136, 0.3);
+            border-radius: 50%;
+            border-top-color: #00ff88;
+            animation: spin 1s linear infinite;
+            margin: 10px;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-content">
+            <div class="logo">SecureWatch IDS</div>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#types">Types</a>
+                <a href="#prevention">Prevention</a>
+                <a href="#IDS">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="hero">
+        <div class="hero-content">
+            <h1>Protect Your Network with Advanced Intrusion Detection</h1>
+            <p>Detect, prevent, and respond to security threats in real-time with our cutting-edge Intrusion Detection System.</p>
+            <a href="#about" class="cta-button">Learn More</a>
+        </div>
+    </div>
+
+    <section id="about">
+        <h2>What is an Intrusion Detection System?</h2>
+        <p>An Intrusion Detection System (IDS) is a security technology that monitors network traffic and system activities for malicious actions or security policy violations. It acts as a digital security guard, constantly watching for signs of potential security breaches.</p>
+        <p>Key functions include:</p>
+        <ul class="feature-list">
+            <li>Real-time monitoring of network traffic and system activities</li>
+            <li>Analysis of patterns that may indicate security attacks or breaches</li>
+            <li>Detection of both known and unknown types of attacks</li>
+            <li>Automated alerting and response to security threats</li>
+            <li>Detailed logging for security auditing and compliance</li>
+        </ul>
+    </section>
+
+    <section id="types">
+        <h2>Types of Intrusion Detection</h2>
+        <div class="prevention-grid">
+            <div class="prevention-item">
+                <h3>Network-Based (NIDS)</h3>
+                <p>Monitors network traffic for suspicious activity by analyzing protocol activity. Ideal for detecting external threats attempting to access your network.</p>
+            </div>
+            <div class="prevention-item">
+                <h3>Host-Based (HIDS)</h3>
+                <p>Monitors individual host systems for suspicious activity by analyzing system logs, file changes, and application activity.</p>
+            </div>
+           <div class="prevention-item"> 
+                <h3>Signature-Based</h3>
+                <p>Detects known threats by comparing network traffic to a database of known attack signatures.</p>
+            </div>
+            <div class="prevention-item">
+                <h3>Anomaly-Based</h3>
+                <p>Uses machine learning to detect unusual patterns that deviate from normal behavior, capable of identifying new threats.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="prevention">
+        <h2>How to Prevent Intrusions</h2>
+        <div class="prevention-grid">
+            <div class="prevention-item">
+                <h3>Regular Updates</h3>
+                <p>Keep all systems and software up to date with the latest security patches and updates to prevent known vulnerabilities from being exploited.</p>
+            </div>
+            <div class="prevention-item">
+                <h3>Strong Authentication</h3>
+                <p>Implement multi-factor authentication and strong password policies to prevent unauthorized access to your systems.</p>
+            </div>
+            <div class="prevention-item">
+                <h3>Network Segmentation</h3>
+                <p>Divide your network into separate segments to limit the spread of potential breaches and contain security threats.</p>
+            </div>
+            <div class="prevention-item">
+                <h3>Security Training</h3>
+                <p>Regularly train employees on security best practices and how to recognize potential security threats.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="chat-button" onclick="toggleChat()">
+        <svg class="chat-icon" viewBox="0 0 24 24">
+            <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/>
+        </svg>
+    </div>
+
+
+
+    
+    <section id="IDS">
+        <h2>Contact Us</h2>
+        <p>Have questions or need support? Reach out to our security team.</p>
+        <p>Name:Sachin Jadhav</p>
+        <p>Email: sachin.jadhav@mitaoe.ac.in</p>
+    </section>
+    
+
+
+    <!-- Chatbot Container -->
+    <div class="chat-container" id="chatContainer">
+        <div class="chat-header">
+            <h3>IDS Assistant</h3>
+            <span class="close-chat" onclick="toggleChat()">×</span>
+        </div>
+        <div class="chat-messages" id="chatMessages">
+            <div class="message bot-message">
+                Hello! I'm your IDS assistant. How can I help you today?
+            </div>
+        </div>
+        <div class="chat-input">
+            <input type="text" id="userInput" placeholder="Type your message..." onkeypress="handleKeyPress(event)">
+            <button class="send-button" onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <script>
+        function toggleChat() {
+            const chatContainer = document.getElementById('chatContainer');
+            chatContainer.classList.toggle('active');
+        }
+
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        }
+
+        function createMessage(content, isUser) {
+            const message = document.createElement('div');
+            message.className = `message ${isUser ? 'user-message' : 'bot-message'}`;
+            message.textContent = content;
+            return message;
+        }
+
+        function createLoadingIndicator() {
+            const loading = document.createElement('div');
+            loading.className = 'message bot-message';
+            const spinner = document.createElement('div');
+            spinner.className = 'loading';
+            loading.appendChild(spinner);
+            return loading;
+        }
+
+        async function sendMessage() {
+            const input = document.getElementById('userInput');
+            const messages = document.getElementById('chatMessages');
+            const userMessage = input.value.trim();
+
+            if (!userMessage) return;
+
+            // Add user message
+            messages.appendChild(createMessage(userMessage, true));
+            input.value = '';
+
+            // Add loading indicator
+            const loadingIndicator = createLoadingIndicator();
+            messages.appendChild(loadingIndicator);
+            messages.scrollTop = messages.scrollHeight;
+
+            try {
+                const response = await fetch('/chat', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ message: userMessage })
+                });
+
+                const data = await response.json();
+
+                // Remove loading indicator
+                messages.removeChild(loadingIndicator);
+
+                if (data.error) {
+                    messages.appendChild(createMessage('Sorry, I encountered an error. Please try again.', false));
+                } else {
+                    messages.appendChild(createMessage(data.response, false));
+                }
+            } catch (error) {
+                // Remove loading indicator
+                messages.removeChild(loadingIndicator);
+                messages.appendChild(createMessage('Sorry, I encountered an error. Please try again.', false));
+            }
+
+            messages.scrollTop = messages.scrollHeight;
+        }
+    </script>
+
+    <footer>
+        <p>© 2025 SecureWatch IDS — Protecting Networks Worldwide | A project by Sachin Jadhav.</p>
+    </footer>
+</body>
+</html>
